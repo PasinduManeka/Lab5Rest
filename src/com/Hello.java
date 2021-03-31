@@ -11,10 +11,19 @@ import javax.ws.rs.core.MediaType;
 public class Hello
 {
 	@GET
+	@Path("/")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String hello()
+	{
+		return "Hello World";
+	}
+	
+	@GET
 	@Path("/{name}")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String hello(@PathParam("name") String name)
+	public String helloName(@PathParam("name") String name)
 	{
 		return "Hello "+name;
 	}
+	
 }
